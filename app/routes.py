@@ -31,7 +31,7 @@ def get_orders():
 
 @app.route("/orders/<int:order_id>", methods=["GET"])
 def get_order(order_id):
-    """Возвращает заказа по ID."""
+    """Возвращает заказ по ID."""
     order = db.session.query(models.Order).get(order_id)
 
     if order is None:
@@ -87,7 +87,7 @@ def edit_user(user_id):
     return {}
 
 
-@app.route("/orders/<int:user_id>", methods=["DELETE"])
+@app.route("/users/<int:user_id>", methods=["DELETE"])
 def delete_user(user_id):
     """Удаляет пользователя по ID."""
     result = db.session.query(models.User).filter(models.User.id == user_id).delete()
@@ -112,7 +112,7 @@ def create_order():
     return {}
 
 
-@app.route("/users/<int:order_id>", methods=["PUT"])
+@app.route("/orders/<int:order_id>", methods=["PUT"])
 def edit_order(order_id):
     """Обновляет заказ по ID."""
     data = request.json
@@ -128,7 +128,7 @@ def edit_order(order_id):
     return {}
 
 
-@app.route("/users/<int:order_id>", methods=["DELETE"])
+@app.route("/orders/<int:order_id>", methods=["DELETE"])
 def delete_order(order_id):
     """Удаляет заказ по ID."""
 
@@ -154,7 +154,7 @@ def create_offer():
     return {}
 
 
-@app.route("/users/<int:offer_id>", methods=["PUT"])
+@app.route("/offers/<int:offer_id>", methods=["PUT"])
 def edit_offer(offer_id):
     """Обновляет предложение по ID."""
     data = request.json
@@ -170,7 +170,7 @@ def edit_offer(offer_id):
     return {}
 
 
-@app.route("/users/<int:order_id>", methods=["DELETE"])
+@app.route("/offers/<int:offer_id>", methods=["DELETE"])
 def delete_offer(offer_id):
     """Удаляет предложение по ID."""
 
